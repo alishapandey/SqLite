@@ -60,4 +60,13 @@ public class MyHelper extends SQLiteOpenHelper {
         }
         return dictionaryList;
     }
+    public List<WordClass> GetWordByName(String word,SQLiteDatabase db);
+    List<WordClass> dictionaryList = new ArrayList<>();
+    Cursor cursor = db.rawQuery("select * from tblWord where Word ='"+word+"'",null);
+    if(cursor.getCount()>0) {
+        while (cursor.moveToNext()){
+            dictionaryList.add(new WordClass(cursor.getInt(0), cursor.getString(1),cursor.getString(2)));
+        }
+    }
+    return dictionaryList;
 }

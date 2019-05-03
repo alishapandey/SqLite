@@ -24,6 +24,7 @@ public class Main2Activity extends AppCompatActivity {
         lvwords = findViewById(R.id.lvwords);
         LoadWord();
 
+
     }
     private void LoadWord() {
         final MyHelper myHelper = new MyHelper(this);
